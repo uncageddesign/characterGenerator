@@ -1,0 +1,7 @@
+@startuml
+title RockenRollem
+
+
+class Redux << (P,yellow) Provider>> {
+    ~store
+}
