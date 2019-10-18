@@ -1,0 +1,67 @@
+title RockenRollem
+
+
+
+class CharacterContainer {
+    ~state
+}
+
+class CharacterRaceContainer {
+  - props
+}
+
+class CharacterClassContainer {
+  - props
+}
+
+class CharacterSheet {
+  -props
+}
+
+
+class CharacterStatsContainer {
+  - props
+}
+
+class CharacterEquipmentContainer {
+  - props
+}
+
+class CharacterStoryContainer {
+  - props
+}
+
+class CharacterRace {
+  - props
+}
+
+class CharacterClass {
+  - props
+}
+
+class CharacterStats {
+  - props
+}
+
+class CharacterEquipment {
+  - props
+}
+
+class CharacterStory {
+  - props
+}
+
+
+
+
+CharacterContainer *-- CharacterRaceContainer
+CharacterContainer *-- CharacterClassContainer
+CharacterContainer o-- CharacterSheet
+CharacterContainer *-- CharacterStatsContainer
+CharacterContainer *-- CharacterEquipmentContainer
+CharacterContainer *-- CharacterStoryContainer
+CharacterRaceContainer *-- CharacterRace
+CharacterClassContainer *-- CharacterClass
+CharacterStatsContainer *-- CharacterStats
+CharacterEquipmentContainer *-- CharacterEquipment
+CharacterStoryContainer *-- CharacterStory
