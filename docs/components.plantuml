@@ -1,33 +1,39 @@
+@startuml
 title RockenRollem
 
 
 
 class CharacterContainer {
-    ~state
+    ~ state
 }
 
-class CharacterRaceContainer {
+class CharacterRaceClassContainer {
+  ~state
   - props
 }
 
-class CharacterClassContainer {
+
+
+class CharacterStatsContainer {
+  ~state
   - props
+}
+
+class DiceRoller {
+  ~ state
 }
 
 class CharacterSheet {
   -props
 }
 
-
-class CharacterStatsContainer {
-  - props
-}
-
 class CharacterEquipmentContainer {
+  ~state
   - props
 }
 
 class CharacterStoryContainer {
+  ~state
   - props
 }
 
@@ -43,25 +49,78 @@ class CharacterStats {
   - props
 }
 
-class CharacterEquipment {
+class CharacterGear {
   - props
 }
 
-class CharacterStory {
+class CharacterWeapons {
+  - props
+}
+
+class Identity {
+  - props
+}
+
+class Attributes {
+  - props
+}
+
+class Proficiencies {
+  - props
+}
+
+class Stats {
+  - props
+}
+
+class Equipment {
+  - props
+}
+
+class Background {
+  - props
+}
+
+class Traits {
   - props
 }
 
 
 
+CharacterContainer *-- CharacterRaceClassContainer
 
-CharacterContainer *-- CharacterRaceContainer
-CharacterContainer *-- CharacterClassContainer
-CharacterContainer o-- CharacterSheet
+CharacterContainer o---- CharacterSheet
+CharacterSheet *-- Identity
+CharacterSheet *-- Attributes
+CharacterSheet *-- Proficiencies
+CharacterSheet *-- Stats
+CharacterSheet *-- Equipment
+CharacterSheet *-- Background
+CharacterSheet *-- Traits
 CharacterContainer *-- CharacterStatsContainer
 CharacterContainer *-- CharacterEquipmentContainer
 CharacterContainer *-- CharacterStoryContainer
-CharacterRaceContainer *-- CharacterRace
-CharacterClassContainer *-- CharacterClass
+CharacterRaceClassContainer *-- CharacterRace
+CharacterRaceClassContainer *-- CharacterClass
 CharacterStatsContainer *-- CharacterStats
-CharacterEquipmentContainer *-- CharacterEquipment
+CharacterStatsContainer *-- DiceRoller
+CharacterEquipmentContainer *-- CharacterGear
+CharacterEquipmentContainer *-- CharacterWeapons
 CharacterStoryContainer *-- CharacterStory
+
+@enduml
+
+# Generator Components and Containers
+1. Home
+2. RaceClass
+// more to come
+
+
+# Components for character CharacterSheet
+- Identity
+- Attributes
+- Proficiencies
+- Stats
+- Equipment
+- Background
+- Traits
