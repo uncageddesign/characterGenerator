@@ -1,7 +1,9 @@
 @startuml
-title RockenRollem
+title Rock&Rollem
 
-
+class HomeScreen {
+  - props
+}
 
 class CharacterContainer {
     ~ state
@@ -30,6 +32,12 @@ class CharacterSheet {
 class CharacterEquipmentContainer {
   ~state
   - props
+  --
+  CompletedList
+  --
+  form: CharacterGear
+  --
+  form: CharacterWeapons
 }
 
 class CharacterStoryContainer {
@@ -85,10 +93,15 @@ class Traits {
   - props
 }
 
+class CompletedList {
+  - props
+}
 
+
+CharacterContainer *-- HomeScreen
 
 CharacterContainer *-- CharacterRaceClassContainer
-
+CharacterContainer *-- CharacterStatsContainer
 CharacterContainer o---- CharacterSheet
 CharacterSheet *-- Identity
 CharacterSheet *-- Attributes
@@ -97,7 +110,7 @@ CharacterSheet *-- Stats
 CharacterSheet *-- Equipment
 CharacterSheet *-- Background
 CharacterSheet *-- Traits
-CharacterContainer *-- CharacterStatsContainer
+
 CharacterContainer *-- CharacterEquipmentContainer
 CharacterContainer *-- CharacterStoryContainer
 CharacterRaceClassContainer *-- CharacterRace
@@ -107,6 +120,7 @@ CharacterStatsContainer *-- DiceRoller
 CharacterEquipmentContainer *-- CharacterGear
 CharacterEquipmentContainer *-- CharacterWeapons
 CharacterStoryContainer *-- CharacterStory
+CharacterContainer *-- CompletedList
 
 @enduml
 
