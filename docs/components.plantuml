@@ -1,0 +1,83 @@
+title RockenRollem
+
+
+
+class CharacterContainer {
+    ~ state
+}
+
+class CharacterRaceContainer {
+  ~state
+  - props
+}
+
+class CharacterClassContainer {
+  ~state
+  - props
+}
+
+class CharacterSheet {
+  -props
+}
+
+
+class CharacterStatsContainer {
+  ~state
+  - props
+}
+
+class CharacterEquipmentContainer {
+  ~state
+  - props
+}
+
+class CharacterStoryContainer {
+  ~state
+  - props
+}
+
+class CharacterRace {
+  - props
+}
+
+class CharacterClass {
+  - props
+}
+
+class CharacterStats {
+  - props
+}
+
+class CharacterEquipment {
+  - props
+}
+
+class CharacterStory {
+  - props
+}
+
+
+
+
+CharacterContainer *-- CharacterRaceContainer
+CharacterContainer *-- CharacterClassContainer
+CharacterContainer o-- CharacterSheet
+CharacterContainer *-- CharacterStatsContainer
+CharacterContainer *-- CharacterEquipmentContainer
+CharacterContainer *-- CharacterStoryContainer
+CharacterRaceContainer *-- CharacterRace
+CharacterClassContainer *-- CharacterClass
+CharacterStatsContainer *-- CharacterStats
+CharacterEquipmentContainer *-- CharacterEquipment
+CharacterStoryContainer *-- CharacterStory
+
+@enduml
+
+# Components for character CharacterSheet
+- Identity
+- Attributes
+- Proficiencies
+- Stats
+- Equipment
+- Background
+- Traits
