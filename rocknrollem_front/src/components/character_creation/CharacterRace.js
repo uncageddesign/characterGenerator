@@ -10,7 +10,7 @@ function handleChange(event){
     return "Loading Races";
   }
 
-  const races =  props.races.map((race, index) => {
+  const races =  props.races.results.map((race, index) => {
     return <option value={index} key={index}> {race.name} </option>
   })
 
