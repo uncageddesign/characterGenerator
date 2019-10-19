@@ -1,5 +1,5 @@
 import React from 'react';
-import CharacterRace from '../../components/character_components/CharacterRace';
+import CharacterRace from '../../components/character_creation/CharacterRace';
 
 class CharacterRaceContainer extends React.Component {
   constructor(props){
