@@ -1,11 +1,11 @@
-import React from 'react';
-import HomeScreen from '../components/HomeScreen';
+import React, {Fragment} from 'react';
+import CharacterAttributesContainer from '../containers/creation_containers/CharacterAttributesContainer';
 
 const MainContainer = () => {
   return (
-    <div>
-    <HomeScreen/>
-    </div>
+    <Fragment>
+    <CharacterAttributesContainer/>
+    </Fragment>
   )
 }
 
