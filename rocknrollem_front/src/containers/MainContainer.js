@@ -1,10 +1,9 @@
 import React, {Fragment} from 'react';
-import CharacterAttributesContainer from '../containers/creation_containers/CharacterAttributesContainer';
 
 const MainContainer = () => {
   return (
     <Fragment>
-    <CharacterAttributesContainer/>
+      <h1>Cower before me, mere mortals!</h1>
     </Fragment>
   )
 }

@@ -14,6 +14,7 @@ class CharacterAttributesContainer extends Component {
     render(){
       return (
         <Fragment>
+          <Dice/>
           <CharacterAttributes attributes={this.state.attributes}/>
         </Fragment>
       )
