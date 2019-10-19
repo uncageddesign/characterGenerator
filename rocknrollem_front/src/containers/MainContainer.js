@@ -1,11 +1,10 @@
-import React from 'react';
-import HomeScreen from '../components/HomeScreen';
+import React, {Fragment} from 'react';
 
 const MainContainer = () => {
   return (
-    <div>
-    <HomeScreen/>
-    </div>
+    <Fragment>
+      <h1>Cower before me, mere mortals!</h1>
+    </Fragment>
   )
 }
 
