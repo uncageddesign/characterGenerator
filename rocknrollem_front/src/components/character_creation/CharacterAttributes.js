@@ -41,13 +41,6 @@ constructor(props){
     }
   }
 
-  // addToModifier(){
-    //takes each index of the attributes array
-    //calculates (stat / 2) -5
-    //adds to modifier array
-  // }
-
-
   render(){
     return(
           <div className="buttons">
