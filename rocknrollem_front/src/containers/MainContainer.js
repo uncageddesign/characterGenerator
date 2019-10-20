@@ -8,7 +8,6 @@ const MainContainer = () => {
       <h1>Cower before me, mere mortals!</h1>
       <CharacterRaceContainer/>
       <CharacterClassContainer />
-      <CharacterStory />
     </Fragment>
   )
 }
