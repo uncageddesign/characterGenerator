@@ -1,13 +1,13 @@
 import React from 'react';
 
 const CharacterRaceDetail = (props) => {
-
-  if(!props.race){
+console.log(props);
+  if(!props.url){
     return (<p> Select a Race </p>)
   }
 
   return (
-    <p>Details</p>
+    <h3>{props.url}</h3>
   )
 }
 
