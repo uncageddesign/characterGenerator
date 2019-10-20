@@ -7,8 +7,7 @@ class CharacterRaceContainer extends React.Component {
     super(props);
     this.state = {
       races: [],
-      selectedRace: null,
-      raceDetails: null
+      selectedRace: null
     };
 
     this.handleRaceSelected = this.handleRaceSelected.bind(this);
@@ -21,26 +20,14 @@ class CharacterRaceContainer extends React.Component {
     .then(response => response.json())
     .then(responseData => {
       this.setState(
-        {races: responseData.results}
-      )
-    }).catch(err => console.error(err));
-
-    const detailUrl = 'http://www.dnd5eapi.co/api/races' + this.races.url
-    fetch(detailUrl)
-    .then(selectedResponse => selectedResponse.json())
-    .then(selectedResponseData => {
-      this.setState(
-        {raceDetails: selectedResponseData.url}
-      )
-    }).catch(err => console.error(err));
-
-
+      {races: responseData.results}
+    )
+  }).catch(err => console.error('balls'));
   }
 
   handleRaceSelected(index){
     const selectedRace = this.state.races[index];
     this.setState({selectedRace: selectedRace})
-    console.log(selectedRace);
   }
 
   render(){
@@ -48,7 +35,7 @@ class CharacterRaceContainer extends React.Component {
     return (
       <div>
       <CharacterRace races={this.state.races} onRaceSelected={this.handleRaceSelected} />
-      <CharacterRaceDetail url={this.state.selectedRaceAPI}/>
+      <CharacterRaceDetail race={this.state.selectedRace}/>
       </div>
     );
   }
