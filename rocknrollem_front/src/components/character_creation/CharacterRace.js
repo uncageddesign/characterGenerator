@@ -14,7 +14,7 @@ const CharacterRace = (props) => {
   }
 
   return (
-    <select id="race-selector" defaultValue="default" onChange={handleChange}>
+    <select id="selector" defaultValue="default" onChange={handleChange}>
       <option disabled value="default">Choose Your Race</option>
       {options}
     </select>

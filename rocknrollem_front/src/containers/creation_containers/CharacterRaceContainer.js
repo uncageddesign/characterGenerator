@@ -31,6 +31,7 @@ class CharacterRaceContainer extends React.Component {
   }
 
   render(){
+
     return (
       <div>
       <CharacterRace races={this.state.races} onRaceSelected={this.handleRaceSelected} />

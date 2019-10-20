@@ -2,22 +2,22 @@ import React from 'react';
 
 const CharacterClass = (props) => {
 
+  console.log(props);
+  const charClasses = props.charClasses.map((char, index) => {
+    if(!props.charClasses.length === 0) {
+      return ("Loading Classes")
+    }
+    return <option value={index} key={index}> {char.name} </option>
+  })
+
   function handleChange(event) {
     props.onCharClassSelected(event.target.value);
   }
 
-  if(!props.charClasses.length === 0) {
-    return "Loading Classes";
-  }
-
-  const charClasses = props.charClasses.map((charClass, index) => {
-    return <option value={index} key={index}> {charClass.name} </option>
-  })
-
   return (
-    <select defaultValue="default" onChange={handleChange}>
+    <select id="selector" defaultValue="default" onChange={handleChange}>
       <option disabled value="default">Choose a Class</option>
-      {charClasses}
+        {charClasses}
     </select>
   )
 }

@@ -6,8 +6,13 @@ const CharacterRaceDetail = (props) => {
     return (<p> Select a Race </p>)
   }
 
+  //to dig into url need to add index somewhere
+
   return (
-    <p>Details</p>
+    <div>
+      <h3>{props.race.name}</h3>
+      <p>Stuff about them...{props.alignment}</p>
+    </div>
   )
 }
 
