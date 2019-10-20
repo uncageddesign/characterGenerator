@@ -31,16 +31,17 @@ constructor(props){
 
   addToAttributes(){
     let att = this.state.rollSum;
+    let mod = Math.floor(att/2) - 5
     console.log(att);
     if(this.state.attributes.length < 6){
       this.setState({
-        attributes: this.state.attributes.concat(att)
+        attributes: this.state.attributes.concat(att),
+        modifiers: this.state.modifiers.concat(mod)
       })
     }
   }
 
-
-  // setModifier(){
+  // addToModifier(){
     //takes each index of the attributes array
     //calculates (stat / 2) -5
     //adds to modifier array
