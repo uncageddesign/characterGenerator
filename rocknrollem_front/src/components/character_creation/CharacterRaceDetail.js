@@ -6,8 +6,13 @@ console.log(props);
     return (<p> Select a Race </p>)
   }
 
+  //to dig into url need to add index somewhere
+
   return (
-    <h3>{props.url}</h3>
+    <div>
+      <h3>{props.race.name}</h3>
+      <p>Stuff about them...{props.alignment}</p>
+    </div>
   )
 }
 
