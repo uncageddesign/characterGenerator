@@ -29,10 +29,12 @@ constructor(props){
     });
   };
 
-  addToAttributes(att){
-    if(att.target.clicked){
+  addToAttributes(){
+    let att = this.state.rollSum;
+    console.log(att);
+    if(this.state.attributes.length < 6){
       this.setState({
-        attributes: [ ...this.state.attributes, att.target.value]
+        attributes: this.state.attributes.concat(att)
       })
     }
   }
