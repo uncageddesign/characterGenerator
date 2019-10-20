@@ -29,10 +29,14 @@ constructor(props){
     });
   };
 
-  addToAttributes(){
-      this.attributes.add(this.rollSum);
-      console.log(this.attributes);
+  addToAttributes(att){
+    if(att.target.clicked){
+      this.setState({
+        attributes: [ ...this.state.attributes, att.target.value]
+      })
+    }
   }
+
 
   // setModifier(){
     //takes each index of the attributes array
@@ -69,7 +73,7 @@ constructor(props){
           })
         }
         {
-          <button onClick={this.addToAttributes}>Add to Stats</button>
+          <button id="attribute" onClick={this.addToAttributes} value={this.rollSum}>Add to Stats</button>
         }
         </div>
       )
