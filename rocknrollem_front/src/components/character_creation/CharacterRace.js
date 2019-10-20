@@ -3,7 +3,7 @@ import React from 'react';
 const CharacterRace = (props) => {
   console.log(props);
   const options =  props.races.map((race, index) => {
-  if(!props.races.length === -1) {
+  if(!props.races.length === 0) {
     return ("Loading Races")
   }
     return <option value={index} key={index}> {race.name} </option>
