@@ -28,6 +28,7 @@ class CharacterRaceContainer extends React.Component {
   handleRaceSelected(index){
     const selectedRace = this.state.races[index];
     this.setState({selectedRace: selectedRace})
+    // console.log(selectedRace);
   }
 
   render(){

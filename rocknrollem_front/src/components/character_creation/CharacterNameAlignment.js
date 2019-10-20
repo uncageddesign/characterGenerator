@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class CharacterNameAlignement extends Component {
+class CharacterNameAlignment extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -60,4 +60,4 @@ class CharacterNameAlignement extends Component {
   }
 }
 
-export default CharacterNameAlignement;
+export default CharacterNameAlignment;
