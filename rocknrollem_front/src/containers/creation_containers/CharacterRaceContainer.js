@@ -6,7 +6,6 @@ class CharacterRaceContainer extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      isDataLoaded: false,
       races: [],
       selectedRace: null
     };
@@ -15,14 +14,15 @@ class CharacterRaceContainer extends React.Component {
   }
 
   componentDidMount(){
-    const url = 'http://www.dnd5eapi.co/api/races/'
+    const url = 'http://www.dnd5eapi.co/api/races'
 
     fetch(url)
-    .then(res => res.json())
-    .then(races => this.setState({races: races}))
-    .catch(err => console.error('balls'));
-
-    console.log(this.races);
+    .then(response => response.json())
+    .then(responseData => {
+      this.setState(
+      {races: responseData.results}
+    )
+  }).catch(err => console.error('balls'));
   }
 
   handleRaceSelected(index){

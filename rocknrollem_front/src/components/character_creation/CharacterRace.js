@@ -1,23 +1,22 @@
 import React from 'react';
 
 const CharacterRace = (props) => {
-
-function handleChange(event){
-  props.onRaceSelected(event.target.value);
-}
-
+  console.log(props);
+  const options =  props.races.map((race, index) => {
   if(!props.races.length === 0) {
-    return "Loading Races";
+    return ("Loading Races")
   }
-
-  const races =  props.races.results.map((race, index) => {
     return <option value={index} key={index}> {race.name} </option>
   })
+
+  function handleChange(event){
+    props.onRaceSelected(event.target.value);
+  }
 
   return (
     <select id="race-selector" defaultValue="default" onChange={handleChange}>
       <option disabled value="default">Choose Your Race</option>
-      {races}
+      {options}
     </select>
   )
 }
