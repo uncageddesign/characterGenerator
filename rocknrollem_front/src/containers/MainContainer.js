@@ -1,23 +1,27 @@
-import React, {Fragment} from 'react';
-import CharacterRaceContainer from './creation_containers/CharacterRaceContainer';
-import CharacterClassContainer from './creation_containers/CharacterClassContainer';
-import CharacterStory from '../components/character_creation/CharacterStory';
-import CharacterNameAlignment from '../components/character_creation/CharacterNameAlignment';
+import React, {Component, Fragment} from 'react';
 
-const MainContainer = () => {
-  return (
-    <Fragment>
-      <h1>Cower before me, mere mortals!</h1>
-      <h2>Identity</h2>
-      <CharacterNameAlignment />
-      <h2>Race</h2>
-      <CharacterRaceContainer/>
-      <h2>Class</h2>
-      <CharacterClassContainer />
-      <h2>Background</h2>
-      <CharacterStory />
-    </Fragment>
-  )
+
+class MainContainer extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      identity: [],
+      attributes: [],
+      proficiencies: [],
+      stats: [],
+      equipment: [],
+      background: [],
+      traits: []
+    }
+
+  }
+
+  render(){
+    return(
+      <h1>Cower before me, mortals!</h1>
+    )
+  }
+
 }
 
 export default MainContainer;
