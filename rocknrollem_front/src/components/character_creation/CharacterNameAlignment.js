@@ -43,7 +43,7 @@ class CharacterNameAlignment extends Component {
           <input type="text" placeholder="Your Name" name="playerName" onChange={this.handlePlayerName} value={this.state.playerName} />
 
           <select name="alignment" onChange={this.handleAlignmentSelect}>
-            <option diabled value="default">Select Alignment</option>
+            <option disabled value="default">Select Alignment</option>
             <option value="Chaotic Good">Chaotic Good</option>
             <option value="Chaotic Neutral">Chaotic Neutral</option>
             <option value="Chaotic Evil">Chaotic Evil</option>

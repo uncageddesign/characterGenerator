@@ -11,7 +11,7 @@ const CharacterRaceDetail = (props) => {
   return (
     <div>
       <h3>{props.race.name}</h3>
-      <p>Stuff about them...{props.alignment}</p>
+      <p>{props.race.alignment}</p>
     </div>
   )
 }

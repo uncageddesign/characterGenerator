@@ -24,16 +24,16 @@ class CharacterClassContainer extends React.Component {
   }).catch(err => console.error('Just cannae do it captain'));
   }
 
-  findClassById(id){
-    return this.state.charClasses.find((charClass) => {
-      return charClass.id === parseInt(id);
-    });
-  }
-
   handleCharClassSelected(index){
-    const selectedClass = this.state.charClasses[index];
-    this.setState({index: index})
+    let selectedClass = this.state.charClasses[index];
+    fetch(selectedClass.url)
+    .then(res => res.json())
+    .then((classDeets) => {
+      selectedClass = classDeets
+    })
+    .then(() => {
     this.setState({selectedClass: selectedClass})
+      })
   }
 
   render(){

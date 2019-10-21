@@ -26,8 +26,15 @@ class CharacterRaceContainer extends React.Component {
   }
 
   handleRaceSelected(index){
-    const selectedRace = this.state.races[index];
-    this.setState({selectedRace: selectedRace})
+    let selectedRace = this.state.races[index];
+    fetch(selectedRace.url)
+    .then(res => res.json())
+    .then((raceDetails) => {
+      selectedRace = raceDetails
+    })
+    .then(() => {
+      this.setState({selectedRace: selectedRace})
+    })
     // console.log(selectedRace);
   }
 

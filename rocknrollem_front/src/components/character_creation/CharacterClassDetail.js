@@ -11,7 +11,7 @@ const CharacterClassDetail = (props) => {
   return (
     <div>
       <h3>{props.charClass.name}</h3>
-      <p>Class details to come {props.charClass.hit_die}</p>
+      <p>{props.charClass.alignment}</p>
     </div>
   )
 }
