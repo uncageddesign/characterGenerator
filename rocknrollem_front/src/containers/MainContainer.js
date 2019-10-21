@@ -22,11 +22,13 @@ class MainContainer extends Component {
     }
   }
 
-  return (
+  render(){
+    return (
     <Fragment>
       <CharacterContainer />
     </Fragment>
   )
+}
 
 }
 
