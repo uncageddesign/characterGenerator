@@ -7,12 +7,12 @@ class MainContainer extends Component {
     super(props);
     this.state = {
       identity: [
-        'Mhairi',
         'Clyde',
-        'Chaotic Neutral'
+        'Barbarian',
+        'Azer (Flameheart)',
+        'Chaotic Neutral',
+        'Mhairi'
       ],
-      race: 'Gnome',
-      class: 'Barbarian',
       attributes: [17,12,15,8,10,10],
       background: [
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
