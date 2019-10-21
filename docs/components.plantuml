@@ -1,0 +1,140 @@
+@startuml
+title Rock&Rollem
+
+class HomeScreen {
+  - props
+}
+
+class CharacterContainer {
+    ~ state
+}
+
+interface CharacterRaceContainer {
+  ~state
+  - props
+}
+
+class CharacterRace {
+  - props
+}
+
+
+interface CharacterClassContainer {
+  ~state
+  - props
+}
+
+class CharacterClass {
+  - props
+}
+
+
+class CharacterAttributesContainer {
+  ~state
+  - props
+  ---
+  getDiceScore()
+}
+
+class CharacterAttributes {
+  - props
+}
+
+class Dice {
+  ~ state
+}
+
+
+class CharacterSheet {
+  -props
+}
+
+
+class Identity {
+  - props
+}
+
+class Attributes {
+  - props
+}
+
+class Proficiencies {
+  - props
+}
+
+class Stats {
+  - props
+}
+
+class Equipment {
+  - props
+}
+
+class Background {
+  - props
+}
+
+class Traits {
+  - props
+}
+
+
+
+class CharacterEquipmentContainer {
+  ~state
+  - props
+}
+
+class CharacterGear {
+  - props
+  --
+  form: CharacterGear
+}
+
+class CharacterWeapons {
+  - props
+  --
+  form: CharacterWeapons
+}
+
+
+
+class CharacterStoryContainer {
+  ~state
+}
+
+class CharacterStory {
+  - props
+}
+
+
+class CompletedList {
+  - props
+}
+
+
+CharacterContainer *-- HomeScreen
+
+CharacterContainer *-- CharacterRaceContainer
+CharacterContainer *-- CharacterClassContainer
+CharacterContainer *-- CharacterAttributesContainer
+CharacterContainer o---- CharacterSheet
+CharacterContainer *-- CharacterEquipmentContainer
+CharacterContainer *-- CharacterStoryContainer
+CharacterRaceContainer *-- CharacterRace
+CharacterClassContainer *-- CharacterClass
+CharacterAttributesContainer *-- CharacterAttributes
+CharacterAttributesContainer *-- Dice
+CharacterEquipmentContainer *-- CharacterGear
+CharacterEquipmentContainer *-- CharacterWeapons
+CharacterStoryContainer *-- CharacterStory
+CharacterContainer *-- CompletedList
+CharacterSheet *-- Identity
+CharacterSheet *-- Attributes
+CharacterSheet *-- Proficiencies
+CharacterSheet *-- Stats
+CharacterSheet *-- Equipment
+CharacterSheet *-- Background
+CharacterSheet *-- Traits
+
+@enduml
