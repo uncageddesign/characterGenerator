@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+//change to Background
+
 class CharacterStory extends Component {
   constructor(props){
     super(props);

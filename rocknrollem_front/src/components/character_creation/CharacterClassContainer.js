@@ -1,6 +1,6 @@
 import React from 'react';
-import CharacterClass from '../../components/character_creation/CharacterClass';
-import CharacterClassDetail from '../../components/character_creation/CharacterClassDetail';
+// import CharacterClass from '../../components/character_creation/CharacterClass';
+// import CharacterEquipment from '../../components/character_creation/CharacterEquipment';
 
 class CharacterClassContainer extends React.Component {
   constructor(props){
@@ -37,12 +37,23 @@ class CharacterClassContainer extends React.Component {
   }
 
   render(){
+    const charClasses = props.charClasses.map((char, index) => {
+      if(!props.charClasses.length === 0) {
+        return ("Loading Classes")
+      }
+      return <option value={index} key={index}> {char.name} </option>
+    })
+
+    function handleChange(event) {
+      props.onCharClassSelected(event.target.value);
+    }
+
     return (
-      <div>
-        <CharacterClass charClasses={this.state.charClasses} onCharClassSelected={this.handleCharClassSelected}/>
-        <CharacterClassDetail charClass={this.state.selectedClass}/>
-      </div>
-    );
+      <select id="selector" defaultValue="default" onChange={handleChange}>
+        <option disabled value="default">Choose a Class</option>
+          {charClasses}
+      </select>
+    )
   }
 }
 
