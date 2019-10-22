@@ -1,20 +1,18 @@
-import React, {Component, Fragment} from 'react';
-import Identity from '../components/character_sheet/Identity';
-import Attributes from '../components/character_sheet/Attributes'
-import Background from '../components/character_sheet/Background'
+import React, { Component, Fragment } from "react";
+import Identity from "../components/character_sheet/Identity";
+import Attributes from "../components/character_sheet/Attributes";
+import Background from "../components/character_sheet/Background";
 
 class SheetContainer extends Component {
-
-  render(){
-    return(
+  render() {
+    return (
       <Fragment>
-        <Identity {...this.props.identity}/>
-        <Attributes {...this.props.attributes}/>
-        <Background {...this.props.background}/>
+        <Identity {...this.props.character.identity} />
+        <Attributes {...this.props.character.attributes} />
+        <Background {...this.props.character.background} />
       </Fragment>
-    )
+    );
   }
-
 }
 
 export default SheetContainer;
