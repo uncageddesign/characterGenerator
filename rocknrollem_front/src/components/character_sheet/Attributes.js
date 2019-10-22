@@ -57,7 +57,24 @@ const Attributes = props => {
       </p>
       <hr />
       <h3>Skills</h3>
-      <p>{}</p>
+      <p>{dexMod} Acrobatics</p>
+      <p>{wisMod} Animal Handling</p>
+      <p>{intMod} Arcana</p>
+      <p>{strMod} Athletics</p>
+      <p>{chaMod} Deception</p>
+      <p>{intMod} History</p>
+      <p>{wisMod} Insight</p>
+      <p>{chaMod} Intimidation</p>
+      <p>{intMod} Investigation</p>
+      <p>{wisMod} Medicine</p>
+      <p>{intMod} Nature</p>
+      <p>{wisMod} Perception</p>
+      <p>{chaMod} Performance</p>
+      <p>{chaMod} Persuasion</p>
+      <p>{intMod} Religion</p>
+      <p>{dexMod} Sleight of Hand</p>
+      <p>{dexMod} Stealth</p>
+      <p>{wisMod} Survival</p>
     </Fragment>
   );
 };
