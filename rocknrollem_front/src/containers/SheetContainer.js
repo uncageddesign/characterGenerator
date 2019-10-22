@@ -8,8 +8,8 @@ class SheetContainer extends Component {
   render(){
     return(
       <Fragment>
-        <Identity {...this.props.identity}/>
-        <Attributes {...this.props.attributes}/>
+        <Identity {...this.props}/>
+        <Attributes {...this.props}/>
         <Background {...this.props.background}/>
       </Fragment>
     )
