@@ -10,7 +10,7 @@ class SheetContainer extends Component {
       <Fragment>
         <Identity {...this.props.character} />
         <Stats />
-        <Attributes {...this.props} />
+      <Attributes {...this.props.characterStats} />
         <Background {...this.props.character.background} />
       </Fragment>
     );

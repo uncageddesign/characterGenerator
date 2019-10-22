@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 
 const Attributes = props => {
-  const strMod = props.characterStats.modifiers[0];
-  const dexMod = props.characterStats.modifiers[1];
-  const conMod = props.characterStats.modifiers[2];
-  const intMod = props.characterStats.modifiers[3];
-  const wisMod = props.characterStats.modifiers[4];
-  const chaMod = props.characterStats.modifiers[5];
+  const strMod = props.modifiers[0];
+  const dexMod = props.modifiers[1];
+  const conMod = props.modifiers[2];
+  const intMod = props.modifiers[3];
+  const wisMod = props.modifiers[4];
+  const chaMod = props.modifiers[5];
 
 
 
@@ -14,25 +14,25 @@ const Attributes = props => {
     <Fragment>
       <hr />
       <p>
-        STRENGTH: {props.characterStats.attributes[0]}:({strMod})
+        STRENGTH: {props.attributes[0]}:({strMod})
       </p>
       <p>
-        DEXTERITY: {props.characterStats.attributes[1]}:({dexMod})
+        DEXTERITY: {props.attributes[1]}:({dexMod})
       </p>
       <p>
-        CONSTITUTION: {props.characterStats.attributes[2]}:(
+        CONSTITUTION: {props.attributes[2]}:(
         {conMod})
       </p>
       <p>
-        INTELLIGENCE: {props.characterStats.attributes[3]}:(
+        INTELLIGENCE: {props.attributes[3]}:(
         {intMod})
       </p>
       <p>
-        WISDOM: {props.characterStats.attributes[4]}:(
+        WISDOM: {props.attributes[4]}:(
         {wisMod})
       </p>
       <p>
-        CHARISMA: {props.characterStats.attributes[5]}:(
+        CHARISMA: {props.attributes[5]}:(
         {chaMod})
       </p>
       <hr />
