@@ -25,9 +25,7 @@ class CharacterClass extends React.Component {
 
   handleCharClassSelected(index){
     let selectedClass = this.state.charClasses[index];
-
     this.setState({selectedClass: selectedClass})
-
   }
 
   render(){

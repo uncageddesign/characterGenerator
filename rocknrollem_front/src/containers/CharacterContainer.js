@@ -37,7 +37,7 @@ const CharacterContainer = (props) => {
       <CharacterRace race={CharacterRace.selectedRace}/>
 
       <h2>Class</h2>
-      <CharacterClass charClass={CharacterClass.selectedClass}/>
+      <CharacterClass class={CharacterClass.selectedClass}/>
 
       <h2>Roll Your Ability Scores</h2>
         <CharacterAttributes onChange={props.addToAttributes}/>
