@@ -1,6 +1,5 @@
 import React from 'react';
 import CharacterRaceSelector from '../../components/character_creation/CharacterRaceSelector';
-import CharacterRaceDetail from '../../components/character_creation/CharacterRaceDetail';
 
 class CharacterRace extends React.Component {
   constructor(props){
@@ -13,16 +12,28 @@ class CharacterRace extends React.Component {
     this.handleRaceSelected = this.handleRaceSelected.bind(this);
   }
 
+  componentDidMount(){
+    const url = 'http://www.dnd5eapi.co/api/races'
+
+    fetch(url)
+    .then(response => response.json())
+    .then(responseData => {
+      this.setState(
+      {races: responseData.results}
+    )
+  }).catch(err => console.error('balls'));
+  }
+
   handleRaceSelected(index){
     let selectedRace = this.state.races[index];
-    fetch(selectedRace.url)
-    .then(res => res.json())
-    .then((raceDetails) => {
-      selectedRace = raceDetails
-    })
-    .then(() => {
+    // fetch(selectedRace.url)
+    // .then(res => res.json())
+    // .then((raceDetails) => {
+    //   selectedRace = raceDetails
+    // })
+    // .then(() => {
       this.setState({selectedRace: selectedRace})
-    })
+    // })
     // console.log(selectedRace);
   }
 
@@ -31,7 +42,6 @@ class CharacterRace extends React.Component {
     return (
       <div>
       <CharacterRaceSelector races={this.state.races} onRaceSelected={this.handleRaceSelected} />
-      <CharacterRaceDetail race={this.state.selectedRace}/>
       </div>
     );
   }

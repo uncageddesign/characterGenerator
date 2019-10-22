@@ -11,6 +11,18 @@ class CharacterClass extends React.Component {
     this.handleCharClassSelected = this.handleCharClassSelected.bind(this);
   }
 
+  componentDidMount(){
+    const url = 'http://www.dnd5eapi.co/api/startingequipment'
+
+    fetch(url)
+    .then(response => response.json())
+    .then(responseData => {
+      this.setState(
+      {charClasses: responseData.results}
+    )
+  }).catch(err => console.error('Just cannae do it captain'));
+  }
+
   handleCharClassSelected(index){
     let selectedClass = this.state.charClasses[index];
 
