@@ -12,7 +12,7 @@ class CharacterClass extends React.Component {
   }
 
   componentDidMount(){
-    const url = 'http://www.dnd5eapi.co/api/classes'
+    const url = 'http://www.dnd5eapi.co/api/startingequipment'
 
     fetch(url)
     .then(response => response.json())
@@ -25,14 +25,9 @@ class CharacterClass extends React.Component {
 
   handleCharClassSelected(index){
     let selectedClass = this.state.charClasses[index];
-    fetch(selectedClass.url)
-    .then(res => res.json())
-    .then((classDeets) => {
-      selectedClass = classDeets
-    })
-    .then(() => {
+
     this.setState({selectedClass: selectedClass})
-      })
+    
   }
 
   render(){

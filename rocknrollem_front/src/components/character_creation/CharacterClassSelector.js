@@ -7,7 +7,7 @@ const CharacterClassSelector = (props) => {
     if(!props.charClasses.length === 0) {
       return ("Loading Classes")
     }
-    return <option value={index} key={index}> {char.name} </option>
+    return <option value={index} key={index}> {char.class} </option>
   })
 
   function handleChange(event) {

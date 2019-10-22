@@ -6,8 +6,7 @@ class CharacterAttributes extends Component {
 constructor(props){
   super(props);
   this.state = {
-    attributes: [],
-    modifiers: [],  //possibly goes in character sheet
+    //possibly goes in character sheet
     numberOfDice: null,
     rolls: [],
     rollSum: null
@@ -29,16 +28,11 @@ constructor(props){
     });
   };
 
-  addToAttributes(){
+  calculateScores(){
     let att = this.state.rollSum;
     let mod = Math.floor(att/2) - 5
     console.log(att);
-    if(this.state.attributes.length < 6){
-      this.setState({
-        attributes: this.state.attributes.concat(att),
-        modifiers: this.state.modifiers.concat(mod)
-      })
-    }
+    props.addToAttributes(att, mod);
   }
 
   render(){
@@ -69,7 +63,7 @@ constructor(props){
           })
         }
         {
-          <button id="attribute" onClick={this.addToAttributes} value={this.rollSum}>Add to Stats</button>
+          <button id="attribute" onClick={this.calculateScores} value={this.rollSum}>Add to Stats</button>
         }
         </div>
       )
