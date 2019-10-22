@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import CharacterContainer from './CharacterContainer';
 import SheetContainer from './SheetContainer';
 
+
 class MainContainer extends Component {
   constructor(props){
     super(props);
@@ -27,7 +28,10 @@ class MainContainer extends Component {
     return (
     <Fragment>
       <CharacterContainer />
+
+
       <SheetContainer {...this.state} />
+
     </Fragment>
   )
 }
