@@ -1,20 +1,65 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from "react";
 
-const Attributes = (props) => {
+const Attributes = props => {
+  const strMod = props.characterStats.modifiers[0];
+  const dexMod = props.characterStats.modifiers[1];
+  const conMod = props.characterStats.modifiers[2];
+  const intMod = props.characterStats.modifiers[3];
+  const wisMod = props.characterStats.modifiers[4];
+  const chaMod = props.characterStats.modifiers[5];
 
-  return(
+
+
+  return (
     <Fragment>
-      <hr/>
-    <h3>STRENGTH: {props.attributes[0]}:({props.modifiers[0]})</h3>
-      <p>DEXTERITY: {props.attributes[1]}:({props.modifiers[1]})</p>
-      <p>CONSTITUTION: {props.attributes[2]}:({props.modifiers[2]})</p>
-      <p>INTELLIGENCE: {props.attributes[3]}:({props.modifiers[3]})</p>
-      <p>WISDOM: {props.attributes[4]}:({props.modifiers[4]})</p>
-      <p>CHARISMA: {props.attributes[5]}:({props.modifiers[5]})</p>
-      <hr/>
+      <hr />
+      <p>
+        STRENGTH: {props.characterStats.attributes[0]}:({strMod})
+      </p>
+      <p>
+        DEXTERITY: {props.characterStats.attributes[1]}:({dexMod})
+      </p>
+      <p>
+        CONSTITUTION: {props.characterStats.attributes[2]}:(
+        {conMod})
+      </p>
+      <p>
+        INTELLIGENCE: {props.characterStats.attributes[3]}:(
+        {intMod})
+      </p>
+      <p>
+        WISDOM: {props.characterStats.attributes[4]}:(
+        {wisMod})
+      </p>
+      <p>
+        CHARISMA: {props.characterStats.attributes[5]}:(
+        {chaMod})
+      </p>
+      <hr />
+      <h3>Saving Throws</h3>
+      <p>
+        {strMod} Strength
+      </p>
+      <p>
+        {dexMod} Dexterity
+      </p>
+      <p>
+        {conMod} Constitution
+      </p>
+      <p>
+        {intMod} Intelligence
+      </p>
+      <p>
+        {wisMod} Wisdom
+      </p>
+      <p>
+        {chaMod} Charisma
+      </p>
+      <hr />
+      <h3>Skills</h3>
+      <p>{}</p>
     </Fragment>
-  )
-
-}
+  );
+};
 
 export default Attributes;

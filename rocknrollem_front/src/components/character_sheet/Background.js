@@ -1,18 +1,16 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from "react";
 
 const Background = (props) => {
-
-  return(
+  return (
     <Fragment>
-      <hr/>
-      <p>Personality Traits: {props[0]}</p>
-      <p>Ideals: {props[1]}</p>
-      <p>Bonds: {props[2]}</p>
-      <p>Flaws: {props[3]}</p>
-      <hr/>
+      <hr />
+      <p>Personality Traits: {props.personalityTraits}</p>
+      <p>Ideals: {props.ideals}</p>
+      <p>Bonds: {props.bonds}</p>
+      <p>Flaws: {props.flaws}</p>
+      <hr />
     </Fragment>
-  )
-
-}
+  );
+};
 
 export default Background;
