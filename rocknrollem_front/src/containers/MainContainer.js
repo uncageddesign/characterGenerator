@@ -76,7 +76,7 @@ class MainContainer extends Component {
 
     // GET CLASS
     const index = parseInt(event.target.class.value)
-    const charClass = this.state.characterClasses[index].name
+    const charClass = this.state.characterClasses[index].class
 
     //GET RACE
     const indexR = parseInt(event.target.race.value)

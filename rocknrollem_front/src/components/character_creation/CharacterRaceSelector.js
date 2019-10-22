@@ -1,6 +1,7 @@
 import React from 'react';
 
 const CharacterRaceSelector = (props) => {
+  
   console.log(props);
   const options =  props.races.map((race, index) => {
   if(!props.races.length === 0) {
