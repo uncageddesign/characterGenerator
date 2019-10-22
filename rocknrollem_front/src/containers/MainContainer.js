@@ -12,12 +12,12 @@ class MainContainer extends Component {
           race: "",
           alignment: "",
           playerName: "",
-          background: [
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-            "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          ],
+          background: {
+            personalityTraits: "",
+            ideal: "",
+            bonds: "",
+            flaws: ""
+          },
           equipment: []
         },
         characterStats: {
@@ -29,21 +29,6 @@ class MainContainer extends Component {
     };
     this.addToAttributes = this.addToAttributes.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  addToAttributes(att, mod){
-    if(this.state.characterStats.attributes.length < 6){
-      let newAttrs = this.state.characterStats.attributes;
-      newAttrs.push(att)
-      const newMods = this.state.characterStats.modifiers;
-      newMods.push(mod)
-      this.setState( {
-        characterStats:{
-        attributes: newAttrs,
-        modifiers: newMods
-      }
-      })
-    }
   }
 
   componentDidMount(){
@@ -69,17 +54,43 @@ class MainContainer extends Component {
   }).catch(err => console.error('Just cannae do it captain'));
   }
 
+  addToAttributes(att, mod){
+    if(this.state.characterStats.attributes.length < 6){
+      let newAttrs = this.state.characterStats.attributes;
+      newAttrs.push(att)
+      const newMods = this.state.characterStats.modifiers;
+      newMods.push(mod)
+      this.setState( {
+        characterStats:{
+        attributes: newAttrs,
+        modifiers: newMods
+      }
+      })
+    }
+  }
 
   handleSubmit(event){
     event.preventDefault();
     const newChar = this.state.character;
+    const newBackground = this.state.character.background;
 
     // GET CLASS
     const index = parseInt(event.target.class.value)
     const charClass = this.state.characterClasses[index]
-    newChar.class = charClass
 
+    //GET RACE
+    const indexR = parseInt(event.target.race.value)
+    const charRace = this.state.characterRaces[indexR]
+
+    newChar.class = charClass
+    newChar.race = charRace
     newChar.characterName = event.target.characterName.value
+    newChar.alignment = event.target.alignment.value
+    newChar.playerName = event.target.playerName.value
+    newBackground.personalityTraits = event.target.personalityTraits.value
+    newBackground.ideals = event.target.ideals.value
+    newBackground.bonds = event.target.bonds.value
+    newBackground.flaws = event.target.flaws.value
 
     this.setState({character: newChar})
   }
@@ -90,7 +101,7 @@ class MainContainer extends Component {
       <CharacterContainer addToAttributes={this.addToAttributes} handleSubmit={this.handleSubmit} />
 
 
-      <SheetContainer {...this.state.character} />
+      <SheetContainer {...this.state} />
 
     </Fragment>
   )
