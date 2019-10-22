@@ -15,7 +15,7 @@ const CharacterClassSelector = (props) => {
   }
 
   return (
-    <select id="selector" defaultValue="default" onChange={handleChange}>
+    <select name="class" id="selector" defaultValue="default" onChange={handleChange}>
       <option disabled value="default">Choose a Class</option>
         {charClasses}
     </select>

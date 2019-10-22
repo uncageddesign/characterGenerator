@@ -5,13 +5,18 @@ import CharacterAttributes from '../components/character_creation/CharacterAttri
 
 const CharacterContainer = (props) => {
 
+  const handleSubmit = (event) =>{
+    event.preventDefault();
+    props.handleSubmit(event)
+  }
+
     return (
     <Fragment>
       <h1>Cower before me, mere mortals!</h1>
 
-      <form onSubmit={props.handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <h2>Character Identity</h2>
-          <input type="text" placeholder="Name Your Character" name="characterName" onChange={props.handleCharacterName}/>
+          <input type="text" placeholder="Name Your Character" name="characterName" />
 
           <input type="text" placeholder="Your Name" name="playerName" onChange={props.handlePlayerName}/>
 

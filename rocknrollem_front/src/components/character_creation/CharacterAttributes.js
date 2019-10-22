@@ -10,6 +10,7 @@ constructor(props){
     rolls: [],
     rollSum: null
   }
+  this.calculateScores = this.calculateScores.bind(this)
   };
 
   diceRoll = numberOfDice => {
@@ -29,6 +30,7 @@ constructor(props){
   calculateScores(){
     let att = this.state.rollSum;
     let mod = Math.floor(att/2) - 5
+    this.props.onChange(att, mod)
     console.log(att, mod);
   }
 
@@ -50,6 +52,7 @@ constructor(props){
             let text = "Roll Stat";
             return (
               <button
+              type="button"
                 key={number}
                 onClick={() => this.diceRoll(number)}
 
@@ -60,7 +63,7 @@ constructor(props){
           })
         }
         {
-          <button id="attribute" onClick={this.calculateScores} value={this.rollSum}>Add to Stats</button>
+          <button type="button" id="attribute" onClick={this.calculateScores} value={this.rollSum}>Add to Stats</button>
         }
         </div>
       )

@@ -13,18 +13,6 @@ class CharacterRace extends React.Component {
     this.handleRaceSelected = this.handleRaceSelected.bind(this);
   }
 
-  componentDidMount(){
-    const url = 'http://www.dnd5eapi.co/api/races'
-
-    fetch(url)
-    .then(response => response.json())
-    .then(responseData => {
-      this.setState(
-      {races: responseData.results}
-    )
-  }).catch(err => console.error('balls'));
-  }
-
   handleRaceSelected(index){
     let selectedRace = this.state.races[index];
     fetch(selectedRace.url)
