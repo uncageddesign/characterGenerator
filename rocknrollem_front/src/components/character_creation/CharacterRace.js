@@ -1,24 +1,50 @@
 import React from 'react';
+import CharacterRaceSelector from '../../components/character_creation/CharacterRaceSelector';
 
-const CharacterRace = (props) => {
-  console.log(props);
-  const options =  props.races.map((race, index) => {
-  if(!props.races.length === 0) {
-    return ("Loading Races")
+class CharacterRace extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      races: [],
+      selectedRace: null
+    };
+
+    this.handleRaceSelected = this.handleRaceSelected.bind(this);
   }
-    return <option value={index} key={index}> {race.name} </option>
-  })
 
-  function handleChange(event){
-    props.onRaceSelected(event.target.value);
+  componentDidMount(){
+    const url = 'http://www.dnd5eapi.co/api/races'
+
+    fetch(url)
+    .then(response => response.json())
+    .then(responseData => {
+      this.setState(
+      {races: responseData.results}
+    )
+  }).catch(err => console.error('balls'));
   }
 
-  return (
-    <select id="selector" defaultValue="default" onChange={handleChange}>
-      <option disabled value="default">Choose Your Race</option>
-      {options}
-    </select>
-  )
+  handleRaceSelected(index){
+    let selectedRace = this.state.races[index];
+    // fetch(selectedRace.url)
+    // .then(res => res.json())
+    // .then((raceDetails) => {
+    //   selectedRace = raceDetails
+    // })
+    // .then(() => {
+      this.setState({selectedRace: selectedRace})
+    // })
+    // console.log(selectedRace);
+  }
+
+  render(){
+
+    return (
+      <div>
+      <CharacterRaceSelector races={this.state.races} onRaceSelected={this.handleRaceSelected} />
+      </div>
+    );
+  }
 }
 
 export default CharacterRace;
