@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-// import MainContainer from './containers/MainContainer'
-import MainContainer2 from './containers/MainContainer2'
+import MainContainer from './containers/MainContainer'
 
 class App extends Component {
 
   render() {
     return (
       <div>
-      <MainContainer2 />
+      <MainContainer />
       </div>
     );
   }
