@@ -2,19 +2,16 @@ import React, {Component, Fragment} from 'react';
 import CharacterContainer from './CharacterContainer';
 import SheetContainer from './SheetContainer';
 
-
 class MainContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      character: {
-          characterName: "Clyde",
-          class: "Barbarian",
-          race: "Azer (Flameheart)",
-          alignment: "Chaotic Neutral",
-          playerName: "Mhairi",
-          attributes: [17, 12, 15, 8, 10, 10],
-          modifiers: [],
+      character:  {
+          characterName: "",
+          class: "",
+          race: "",
+          alignment: "",
+          playerName: "",
           background: [
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
@@ -23,72 +20,77 @@ class MainContainer extends Component {
           ],
           equipment: []
         },
+        characterStats: {
+          attributes: [],
+          modifiers: []
+        },
       characterRaces: [],
-      characterClasses: []
+      characterClasses: [],
     };
+    this.addToAttributes = this.addToAttributes.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   addToAttributes(att, mod){
-    if(this.state.attributes.length < 6){
-      this.setState({
-        attributes: this.state.attributes.concat(att),
-        modifiers: this.state.modifiers.concat(mod)
+    if(this.state.characterStats.attributes.length < 6){
+      let newAttrs = this.state.characterStats.attributes;
+      newAttrs.push(att)
+      const newMods = this.state.characterStats.modifiers;
+      newMods.push(mod)
+      this.setState( {
+        characterStats:{
+        attributes: newAttrs,
+        modifiers: newMods
+      }
       })
     }
   }
 
-  createIdentity(){
+  componentDidMount(){
+    const urlRaces = 'http://www.dnd5eapi.co/api/races'
+    const url = 'http://www.dnd5eapi.co/api/startingequipment'
 
+    //RACES
+    fetch(urlRaces)
+    .then(response => response.json())
+    .then(responseData => {
+      this.setState(
+      {characterRaces: responseData.results}
+    )
+    }).catch(err => console.error('balls'));
+
+    //CLASSES
+    fetch(url)
+    .then(response => response.json())
+    .then(responseData => {
+      this.setState(
+      {characterClasses: responseData.results}
+    )
+  }).catch(err => console.error('Just cannae do it captain'));
   }
 
-  handleCharacterName(event){
-    this.setState({characterName: event.target.value})
-  }
-
-  handlePlayerName(event){
-    this.setState({playerName: event.target.value})
-  }
-
-  handleAlignmentSelect(event){
-    this.setState({selectedAlignment: event.target.value})
-  }
-
-  handlepersonalityTraits(event){
-    this.setState({personalityTraits: event.target.value})
-  }
-
-  handleIdeals(event){
-    this.setState({ideals: event.target.value})
-  }
-
-  handleBonds(event){
-    this.setState({bonds: event.target.value})
-  }
-
-  handleFlaws(event){
-    this.setState({flaws: event.target.value})
-  }
 
   handleSubmit(event){
     event.preventDefault();
-    // const newSheet = {
-    //   characterName: this.state.characterName,
-    //   playerName: this.state.playerName,
-    //   personalityTraits: this.state.personalityTraits,
-    //   ideals: this.state.ideals,
-    //   bonds: this.state.bonds,
-    //   flaws: this.state.flaws
-    // }
-    this.state.onSubmit()
+    const newChar = this.state.character;
+
+    // GET CLASS
+    const index = parseInt(event.target.class.value)
+    const charClass = this.state.characterClasses[index]
+    newChar.class = charClass
+
+    newChar.characterName = event.target.characterName.value
+
+    this.setState({character: newChar})
   }
 
   render(){
     return (
     <Fragment>
-      <CharacterContainer />
+      <CharacterContainer addToAttributes={this.addToAttributes} handleSubmit={this.handleSubmit} />
 
 
-      <SheetContainer {...this.state} />
+      <SheetContainer {...this.state.character} />
 
     </Fragment>
   )

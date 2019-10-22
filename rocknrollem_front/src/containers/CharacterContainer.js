@@ -2,24 +2,25 @@ import React, {Fragment} from 'react';
 import CharacterClass from '../components/character_creation/CharacterClass';
 import CharacterRace from '../components/character_creation/CharacterRace';
 import CharacterAttributes from '../components/character_creation/CharacterAttributes';
-// import DiceImage from "../components/character_creation/DiceImage";
-
 
 const CharacterContainer = (props) => {
 
-    // let identity = [this.characterName, this.playerName, this.alignment];
+  const handleSubmit = (event) =>{
+    event.preventDefault();
+    props.handleSubmit(event)
+  }
 
     return (
     <Fragment>
       <h1>Cower before me, mere mortals!</h1>
 
-      <form onSubmit={props.handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <h2>Character Identity</h2>
-          <input type="text" placeholder="Name Your Character" name="characterName" onChange={props.handleCharacterName}/>
+          <input type="text" placeholder="Name Your Character" name="characterName" />
 
           <input type="text" placeholder="Your Name" name="playerName" onChange={props.handlePlayerName}/>
 
-          <select name="alignment" onChange={props.handleAlignmentSelect} defaultValue="default">
+          <select name="alignment" onChange={props.handleAlignmentSelect} defaultValue="default" >
             <option disabled value="default">Select Alignment</option>
             <option value="Chaotic Good">Chaotic Good</option>
             <option value="Chaotic Neutral">Chaotic Neutral</option>
@@ -39,7 +40,7 @@ const CharacterContainer = (props) => {
       <CharacterClass charClass={CharacterClass.selectedClass}/>
 
       <h2>Roll Your Ability Scores</h2>
-        <CharacterAttributes />
+        <CharacterAttributes onChange={props.addToAttributes}/>
 
       <h2>Background</h2>
         <input type="textarea" placeholder="What are your character's personality traits?" name="personalityTraits" onChange={props.handlepersonalityTraits} />
