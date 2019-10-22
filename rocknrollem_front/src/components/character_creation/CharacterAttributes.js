@@ -6,12 +6,10 @@ class CharacterAttributes extends Component {
 constructor(props){
   super(props);
   this.state = {
-    //possibly goes in character sheet
     numberOfDice: null,
     rolls: [],
     rollSum: null
   }
-  this.addToAttributes = this.addToAttributes.bind(this);
   };
 
   diceRoll = numberOfDice => {
@@ -31,13 +29,12 @@ constructor(props){
   calculateScores(){
     let att = this.state.rollSum;
     let mod = Math.floor(att/2) - 5
-    console.log(att);
-    props.addToAttributes(att, mod);
+    console.log(att, mod);
   }
 
   render(){
     return(
-          <div className="buttons">
+          <div>
           {
             this.state.rolls.map((roll, index) => <DiceImage roll={roll} key={index} />)
           }
@@ -55,7 +52,7 @@ constructor(props){
               <button
                 key={number}
                 onClick={() => this.diceRoll(number)}
-                className="button"
+
               >
                 {text}
               </button>

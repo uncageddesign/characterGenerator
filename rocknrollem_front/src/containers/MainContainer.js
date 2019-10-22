@@ -2,18 +2,17 @@ import React, {Component, Fragment} from 'react';
 import CharacterContainer from './CharacterContainer';
 import SheetContainer from './SheetContainer';
 
-
 class MainContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
       character: {
-          characterName: "Clyde",
-          class: "Barbarian",
-          race: "Azer (Flameheart)",
-          alignment: "Chaotic Neutral",
-          playerName: "Mhairi",
-          attributes: [17, 12, 15, 8, 10, 10],
+          characterName: "",
+          class: "",
+          race: "",
+          alignment: "",
+          playerName: "",
+          attributes: [],
           modifiers: [],
           background: [
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -24,8 +23,9 @@ class MainContainer extends Component {
           equipment: []
         },
       characterRaces: [],
-      characterClasses: []
+      characterClasses: [],
     };
+    this.addToAttributes = this.addToAttributes.bind(this);
   }
 
   addToAttributes(att, mod){
@@ -37,10 +37,6 @@ class MainContainer extends Component {
     }
   }
 
-  createIdentity(){
-
-  }
-
   handleCharacterName(event){
     this.setState({characterName: event.target.value})
   }
@@ -50,7 +46,7 @@ class MainContainer extends Component {
   }
 
   handleAlignmentSelect(event){
-    this.setState({selectedAlignment: event.target.value})
+    this.setState({alignment: event.target.value})
   }
 
   handlepersonalityTraits(event){
@@ -71,14 +67,6 @@ class MainContainer extends Component {
 
   handleSubmit(event){
     event.preventDefault();
-    // const newSheet = {
-    //   characterName: this.state.characterName,
-    //   playerName: this.state.playerName,
-    //   personalityTraits: this.state.personalityTraits,
-    //   ideals: this.state.ideals,
-    //   bonds: this.state.bonds,
-    //   flaws: this.state.flaws
-    // }
     this.state.onSubmit()
   }
 
@@ -88,7 +76,7 @@ class MainContainer extends Component {
       <CharacterContainer />
 
 
-      <SheetContainer {...this.state} />
+      <SheetContainer {...this.state.character} />
 
     </Fragment>
   )
