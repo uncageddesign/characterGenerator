@@ -13,7 +13,10 @@ class MainContainer extends Component {
           alignment: "",
           playerName: "",
           background: {
-            personalityTraits: ""
+            personalityTraits: "",
+            ideal: "",
+            bonds: "",
+            flaws: ""
           },
           equipment: []
         },
@@ -98,7 +101,7 @@ class MainContainer extends Component {
       <CharacterContainer addToAttributes={this.addToAttributes} handleSubmit={this.handleSubmit} />
 
 
-      <SheetContainer {...this.state.character} />
+      <SheetContainer {...this.state} />
 
     </Fragment>
   )
