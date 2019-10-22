@@ -76,11 +76,11 @@ class MainContainer extends Component {
 
     // GET CLASS
     const index = parseInt(event.target.class.value)
-    const charClass = this.state.characterClasses[index]
+    const charClass = this.state.characterClasses[index].name
 
     //GET RACE
     const indexR = parseInt(event.target.race.value)
-    const charRace = this.state.characterRaces[indexR]
+    const charRace = this.state.characterRaces[indexR].name
 
     newChar.class = charClass
     newChar.race = charRace
