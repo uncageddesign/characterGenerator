@@ -26,12 +26,6 @@ class MainContainer extends Component {
           attributes: [],
           modifiers: []
         },
-        equipment: []
-      },
-      characterStats: {
-        attributes: [],
-        modifiers: []
-      },
       characterRaces: [],
       characterClasses: []
     };
