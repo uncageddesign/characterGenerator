@@ -5,9 +5,10 @@ import Request from '../helpers/request.js';
 import Equipment from '../helpers/equipment.js'
 
 class MainContainer extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
+
       character:  {
           characterName: "",
           class: "",
@@ -25,25 +26,30 @@ class MainContainer extends Component {
           attributes: [],
           modifiers: []
         },
+        equipment: []
+      },
+      characterStats: {
+        attributes: [],
+        modifiers: []
+      },
       characterRaces: [],
-      characterClasses: [],
+      characterClasses: []
     };
     this.addToAttributes = this.addToAttributes.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount(){
-    const urlRaces = 'http://www.dnd5eapi.co/api/races'
-    const url = 'http://www.dnd5eapi.co/api/startingequipment'
+  componentDidMount() {
+    const urlRaces = "http://www.dnd5eapi.co/api/races";
+    const url = "http://www.dnd5eapi.co/api/startingequipment";
 
     //RACES
     fetch(urlRaces)
-    .then(response => response.json())
-    .then(responseData => {
-      this.setState(
-      {characterRaces: responseData.results}
-    )
-    }).catch(err => console.error('balls'));
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({ characterRaces: responseData.results });
+      })
+      .catch(err => console.error("balls"));
 
     //CLASSES
     fetch(url)
@@ -61,24 +67,25 @@ class MainContainer extends Component {
       this.setState({characterClasses: data.results})
       console.log(data.results);
     })
+
   }
 
-  addToAttributes(att, mod){
-    if(this.state.characterStats.attributes.length < 6){
+  addToAttributes(att, mod) {
+    if (this.state.characterStats.attributes.length < 6) {
       let newAttrs = this.state.characterStats.attributes;
-      newAttrs.push(att)
+      newAttrs.push(att);
       const newMods = this.state.characterStats.modifiers;
-      newMods.push(mod)
-      this.setState( {
-        characterStats:{
-        attributes: newAttrs,
-        modifiers: newMods
-      }
-      })
+      newMods.push(mod);
+      this.setState({
+        characterStats: {
+          attributes: newAttrs,
+          modifiers: newMods
+        }
+      });
     }
   }
 
-  handleSubmit(event){
+  handleSubmit(event) {
     event.preventDefault();
     const newChar = this.state.character;
     const newBackground = this.state.character.background;
@@ -124,7 +131,6 @@ class MainContainer extends Component {
     </div>
   )
 }
-
 }
 
 export default MainContainer;
