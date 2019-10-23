@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import CharacterClass from '../components/character_creation/CharacterClass';
 import CharacterRace from '../components/character_creation/CharacterRace';
 import CharacterAttributes from '../components/character_creation/CharacterAttributes';
+import { Form, TextArea } from 'semantic-ui-react'
 
 const CharacterContainer = (props) => {
 
@@ -11,14 +12,13 @@ const CharacterContainer = (props) => {
   }
 
     return (
-    <Fragment>
-      <h1>Cower before me, mere mortals!</h1>
-
-      <form onSubmit={handleSubmit}>
+    <Fragment >
+      <Form className="creator" onSubmit={handleSubmit}>
         <h2>Character Identity</h2>
-          <input type="text" placeholder="Name Your Character" name="characterName" />
+      <div className="identity">
+          <input className="textbox" type="text" placeholder="Name Your Character" name="characterName" />
 
-          <input type="text" placeholder="Your Name" name="playerName" onChange={props.handlePlayerName}/>
+          <input className="textbox" type="text" placeholder="Your Name" name="playerName" onChange={props.handlePlayerName}/>
 
           <select name="alignment" onChange={props.handleAlignmentSelect} defaultValue="default" >
             <option disabled value="default">Select Alignment</option>
@@ -33,28 +33,38 @@ const CharacterContainer = (props) => {
             <option value="Lawful Evil">Lawful Evil</option>
           </select>
 
-      <h2>Race</h2>
-      <CharacterRace race={CharacterRace.selectedRace}/>
+      </div>
+      <div className="selectors">
+        <div>
+        <h2>Race</h2>
+          <CharacterRace race={CharacterRace.selectedRace}/>
+        </div>
+        <div>
+        <h2>Class</h2>
+          <CharacterClass class={CharacterClass.selectedClass}/>
+        </div>
+      </div>
 
-      <h2>Class</h2>
-      <CharacterClass class={CharacterClass.selectedClass}/>
-
-      <h2>Roll Your Ability Scores</h2>
+      <div>
+        <h2>Roll Your Ability Scores</h2>
         <CharacterAttributes onChange={props.addToAttributes}/>
+      </div>
 
-      <h2>Background</h2>
-        <input type="textarea" placeholder="What are your character's personality traits?" name="personalityTraits" onChange={props.handlepersonalityTraits} />
+      <div className="background">
+        <h2>Background</h2>
+          <TextArea className="bgInput" placeholder="What are your character's personality traits?" name="personalityTraits" onChange={props.handlepersonalityTraits} />
 
-        <input type="textarea" placeholder="What are your character's ideals?" name="ideals" onChange={props.handleIdeals} />
+          <TextArea className="bgInput" placeholder="What are your character's ideals?" name="ideals" onChange={props.handleIdeals} />
 
-        <input type="textarea" placeholder="What are your character's bonds?"
-        name="bonds" onChange={props.handleBonds} />
+          <TextArea className="bgInput" placeholder="What are your character's bonds?"
+          name="bonds" onChange={props.handleBonds} />
 
-        <input type="textarea" placeholder="Nobody's perfect. What are your character's flaws?" name="flaws" onChange={props.handleFlaws} />
+          <TextArea className="bgInput" placeholder="Nobody's perfect. What are your character's flaws?" name="flaws" onChange={props.handleFlaws} />
+      </div>
 
       <button>Generate Character Sheet</button>
 
-      </form>
+      </Form>
     </Fragment>
   )
 }
