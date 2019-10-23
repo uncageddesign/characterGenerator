@@ -1,10 +1,17 @@
 body {
-  margin: 0;
+  margin: 10px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background: url('/dnd-back.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: black;
+  color: whitesmoke;
 }
 
 code {
@@ -12,7 +19,102 @@ code {
     monospace;
 }
 
+.logo {
+  width: 600px;
+  height: 100%;
+}
+
 img{
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
+}
+
+/* ############# */
+/* Form */
+.bgInput {
+  margin: 5px;
+  height: 10vh;
+  width: 30vw;
+  font-size: 14px;
+}
+
+select {
+  width: 20vw;
+  height: 5vh;
+  margin: 5px;
+  font-size: 14px;
+}
+
+button {
+  height: 5vh;
+  padding: 10px;
+  margin: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: darkred;
+  color: whitesmoke;
+  border-radius: 5px;
+  border: none;
+}
+
+.textbox {
+  width: 20vw;
+  height: 4vh;
+  font-size: 14px;
+  margin: 5px;
+}
+
+.creator {
+  height: 90vh;
+  padding: 10px;
+}
+
+.identity, .selectors{
+  display: flex;
+}
+
+.background {
+  width: 80vw;
+}
+
+.dicetray {
+  width: 20vw;
+  background-color: red;
+}
+
+
+/* ############# */
+/* Character Sheet */
+#sheet {
+  width: 60vw;
+  margin: auto;
+  color: black;
+  background-color: ivory;
+  padding: 20px;
+}
+
+/* ############# */
+/* Identity Component */
+.identity-comp {
+  display: flex;
+  width: 98%;
+  padding: 5px;
+  margin: 5px;
+  border: solid 1px black;
+}
+
+#charName {
+  padding: 5px;
+  width: 800px;
+  font-size: 20px;
+  margin: 10px;
+  border: solid 1px black;
+}
+
+#identity-group {
+  width: 600px;
+}
+
+#id-group-element {
+  width: 200px;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import CharacterClassSelector from '../../components/character_creation/CharacterClassSelector';
+import Equipment from '../../helpers/equipment.js'
 
 class CharacterClass extends React.Component {
   constructor(props){
@@ -25,9 +26,11 @@ class CharacterClass extends React.Component {
 
   handleCharClassSelected(index){
     let selectedClass = this.state.charClasses[index];
-
     this.setState({selectedClass: selectedClass})
 
+    const equipment = new Equipment(selectedClass)
+    equipment.getStartingEquipment();
+    this.setState({character:{equipment: equipment}})
   }
 
   render(){

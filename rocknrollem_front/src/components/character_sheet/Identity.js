@@ -2,15 +2,21 @@ import React, { Fragment } from "react";
 
 const Identity = props => {
   return (
-    <Fragment>
-      <hr />
-      <p>Name: {props.characterName}</p>
-      <p>Class: {props.class}</p>
-      <p>Race: {props.race}</p>
-      <p>Alignment: {props.alignment}</p>
-      <p>Player: {props.playerName}</p>
-      <hr />
-    </Fragment>
+    <div className="identity-comp">
+      <Fragment>
+        <div id="charName">
+        <p>Name: {props.characterName}</p>
+        </div>
+        <div id="identity-group">
+        <p id="id-group-element">Class: {props.class}</p>
+        <p id="id-group-element">Race: {props.race}</p>
+        </div>
+        <div id="identity-group">
+        <p id="id-group-element">Alignment: {props.alignment}</p>
+        <p id="id-group-element">Player: {props.playerName}</p>
+        </div>
+      </Fragment>
+    </div>
   );
 };
 

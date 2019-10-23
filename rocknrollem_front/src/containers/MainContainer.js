@@ -1,11 +1,14 @@
 import React, {Component, Fragment} from 'react';
 import CharacterContainer from './CharacterContainer';
 import SheetContainer from './SheetContainer';
+import Request from '../helpers/request.js';
+import Equipment from '../helpers/equipment.js'
 
 class MainContainer extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
+
       character:  {
           characterName: "",
           class: "",
@@ -17,32 +20,30 @@ class MainContainer extends Component {
             ideal: "",
             bonds: "",
             flaws: ""
-          },
-          equipment: []
+          }
         },
         characterStats: {
           attributes: [],
           modifiers: []
         },
       characterRaces: [],
-      characterClasses: [],
+      characterClasses: []
     };
     this.addToAttributes = this.addToAttributes.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount(){
-    const urlRaces = 'http://www.dnd5eapi.co/api/races'
-    const url = 'http://www.dnd5eapi.co/api/startingequipment'
+  componentDidMount() {
+    const urlRaces = "http://www.dnd5eapi.co/api/races";
+    const url = "http://www.dnd5eapi.co/api/startingequipment";
 
     //RACES
     fetch(urlRaces)
-    .then(response => response.json())
-    .then(responseData => {
-      this.setState(
-      {characterRaces: responseData.results}
-    )
-    }).catch(err => console.error('balls'));
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({ characterRaces: responseData.results });
+      })
+      .catch(err => console.error("balls"));
 
     //CLASSES
     fetch(url)
@@ -52,38 +53,53 @@ class MainContainer extends Component {
       {characterClasses: responseData.results}
     )
   }).catch(err => console.error('Just cannae do it captain'));
+
+  //Equipment
+  const request = new Request();
+    request.get("http://www.dnd5eapi.co/api/startingequipment")
+    .then((data) => {
+      this.setState({characterClasses: data.results})
+      console.log(data.results);
+    })
+
   }
 
-  addToAttributes(att, mod){
-    if(this.state.characterStats.attributes.length < 6){
+  addToAttributes(att, mod) {
+    if (this.state.characterStats.attributes.length < 6) {
       let newAttrs = this.state.characterStats.attributes;
-      newAttrs.push(att)
+      newAttrs.push(att);
       const newMods = this.state.characterStats.modifiers;
-      newMods.push(mod)
-      this.setState( {
-        characterStats:{
-        attributes: newAttrs,
-        modifiers: newMods
-      }
-      })
+      newMods.push(mod);
+      this.setState({
+        characterStats: {
+          attributes: newAttrs,
+          modifiers: newMods
+        }
+      });
     }
   }
 
-  handleSubmit(event){
+  handleSubmit(event) {
     event.preventDefault();
     const newChar = this.state.character;
     const newBackground = this.state.character.background;
 
     // GET CLASS
     const index = parseInt(event.target.class.value)
-    const charClass = this.state.characterClasses[index].name
+    const charClass = this.state.characterClasses[index]
 
     //GET RACE
     const indexR = parseInt(event.target.race.value)
     const charRace = this.state.characterRaces[indexR].name
 
-    newChar.class = charClass
+    console.log(charClass);
+
+    //GET EQUIPMENT
+    const charEquip = new Equipment(charClass)
+    charEquip.getStartingEquipment()
+    newChar.class = charClass.class
     newChar.race = charRace
+    newChar.equipment = charEquip
     newChar.characterName = event.target.characterName.value
     newChar.alignment = event.target.alignment.value
     newChar.playerName = event.target.playerName.value
@@ -93,20 +109,21 @@ class MainContainer extends Component {
     newBackground.flaws = event.target.flaws.value
 
     this.setState({character: newChar})
+    // window.location = "/sheet"
   }
 
+// <h1>Cower before me, mere mortals!</h1>
   render(){
     return (
-    <Fragment>
+      <div id="app-container">
+    <Fragment >
+    <img className="logo" src="logo.png" />
       <CharacterContainer addToAttributes={this.addToAttributes} handleSubmit={this.handleSubmit} />
-
-
       <SheetContainer {...this.state} />
-
     </Fragment>
+    </div>
   )
 }
-
 }
 
 export default MainContainer;
