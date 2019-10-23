@@ -7,6 +7,7 @@ import Background from "../components/character_sheet/Background";
 
 class SheetContainer extends Component {
   render() {
+    
     return (
       <div id="sheet">
       <Fragment>

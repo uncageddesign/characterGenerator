@@ -97,8 +97,7 @@ class MainContainer extends Component {
     //GET EQUIPMENT
     const charEquip = new Equipment(charClass)
     charEquip.getStartingEquipment()
-
-    newChar.class = charClass.name
+    newChar.class = charClass.class
     newChar.race = charRace
     newChar.equipment = charEquip
     newChar.characterName = event.target.characterName.value
