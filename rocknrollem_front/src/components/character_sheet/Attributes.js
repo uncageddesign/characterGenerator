@@ -11,71 +11,86 @@ const Attributes = props => {
 
 
   return (
-    <Fragment>
-      <hr />
-      <p>
-        STRENGTH: {props.attributes[0]}:({strMod})
-      </p>
-      <p>
-        DEXTERITY: {props.attributes[1]}:({dexMod})
-      </p>
-      <p>
-        CONSTITUTION: {props.attributes[2]}:(
-        {conMod})
-      </p>
-      <p>
-        INTELLIGENCE: {props.attributes[3]}:(
-        {intMod})
-      </p>
-      <p>
-        WISDOM: {props.attributes[4]}:(
-        {wisMod})
-      </p>
-      <p>
-        CHARISMA: {props.attributes[5]}:(
-        {chaMod})
-      </p>
-      <hr />
-      <h3>Saving Throws</h3>
-      <p>
-        {strMod} Strength
-      </p>
-      <p>
-        {dexMod} Dexterity
-      </p>
-      <p>
-        {conMod} Constitution
-      </p>
-      <p>
-        {intMod} Intelligence
-      </p>
-      <p>
-        {wisMod} Wisdom
-      </p>
-      <p>
-        {chaMod} Charisma
-      </p>
-      <hr />
-      <h3>Skills</h3>
-      <p>{dexMod} Acrobatics</p>
-      <p>{wisMod} Animal Handling</p>
-      <p>{intMod} Arcana</p>
-      <p>{strMod} Athletics</p>
-      <p>{chaMod} Deception</p>
-      <p>{intMod} History</p>
-      <p>{wisMod} Insight</p>
-      <p>{chaMod} Intimidation</p>
-      <p>{intMod} Investigation</p>
-      <p>{wisMod} Medicine</p>
-      <p>{intMod} Nature</p>
-      <p>{wisMod} Perception</p>
-      <p>{chaMod} Performance</p>
-      <p>{chaMod} Persuasion</p>
-      <p>{intMod} Religion</p>
-      <p>{dexMod} Sleight of Hand</p>
-      <p>{dexMod} Stealth</p>
-      <p>{wisMod} Survival</p>
-    </Fragment>
+    <div id="attributes">
+      <Fragment>
+        <div id="stat-block">
+          <p id="ability-scores">
+            <h6>STRENGTH</h6>
+            {props.attributes[0]} <br />
+            ({strMod})
+          </p>
+          <p id="ability-scores">
+            <h6>DEXTERITY</h6>
+            {props.attributes[1]} <br />
+            ({dexMod})
+          </p>
+          <p id="ability-scores">
+            <h6>CONSTITUTION</h6>
+            {props.attributes[2]} <br />
+            ({conMod})
+          </p>
+          <p id="ability-scores">
+            <h6>INTELLIGENCE</h6>
+            {props.attributes[3]} <br />
+            ({intMod})
+          </p>
+          <p id="ability-scores">
+            <h6>WISDOM</h6>
+            {props.attributes[4]} <br />
+            ({wisMod})
+          </p>
+          <p id="ability-scores">
+            <h6>CHARISMA</h6>
+            {props.attributes[5]} <br />
+            ({chaMod})
+          </p>
+        </div>
+        <div>
+        <div id="saving-throw">
+          <h3>Saving Throws</h3>
+          <p id="long-list">
+            O {strMod} Strength
+          </p>
+          <p id="long-list">
+            O {dexMod} Dexterity
+          </p>
+          <p id="long-list">
+            O {conMod} Constitution
+          </p>
+          <p id="long-list">
+            O {intMod} Intelligence
+          </p>
+          <p id="long-list">
+            O {wisMod} Wisdom
+          </p>
+          <p id="long-list">
+            O {chaMod} Charisma
+          </p>
+        </div>
+        <div id="skills">
+          <h3>Skills</h3>
+          <p id="long-list">O {dexMod} Acrobatics</p>
+          <p id="long-list">O {wisMod} Animal Handling</p>
+          <p id="long-list">O {intMod} Arcana</p>
+          <p id="long-list">O {strMod} Athletics</p>
+          <p id="long-list">O {chaMod} Deception</p>
+          <p id="long-list">O {intMod} History</p>
+          <p id="long-list">O {wisMod} Insight</p>
+          <p id="long-list">O {chaMod} Intimidation</p>
+          <p id="long-list">O {intMod} Investigation</p>
+          <p id="long-list">O {wisMod} Medicine</p>
+          <p id="long-list">O {intMod} Nature</p>
+          <p id="long-list">O {wisMod} Perception</p>
+          <p id="long-list">O {chaMod} Performance</p>
+          <p id="long-list">O {chaMod} Persuasion</p>
+          <p id="long-list">O {intMod} Religion</p>
+          <p id="long-list">O {dexMod} Sleight of Hand</p>
+          <p id="long-list">O {dexMod} Stealth</p>
+          <p id="long-list">O {wisMod} Survival</p>
+        </div>
+        </div>
+      </Fragment>
+    </div>
   );
 };
 

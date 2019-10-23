@@ -46,7 +46,7 @@ select {
 }
 
 button {
-  height: 5vh;
+  height: 40px;
   padding: 10px;
   margin: 5px;
   font-size: 14px;
@@ -65,8 +65,9 @@ button {
 }
 
 .creator {
-  height: 90vh;
+  height: 85vh;
   padding: 10px;
+  margin-bottom: 20px;
 }
 
 .identity, .selectors{
@@ -88,9 +89,16 @@ button {
 #sheet {
   width: 60vw;
   margin: auto;
+  margin-top: 30px;
   color: black;
   background-color: ivory;
   padding: 20px;
+}
+
+#sheet-body {
+  display: flex;
+  flex-wrap: wrap;
+  /* align-content: flex-start; */
 }
 
 /* ############# */
@@ -117,4 +125,147 @@ button {
 
 #id-group-element {
   width: 200px;
+}
+
+/* ############# */
+/* Attributes */
+
+#attributes {
+  display: flex;
+  width: 250px;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+#ability-scores {
+  border: solid 1px black;
+  width: 70px;
+  height: 80px;
+  margin: 5px;
+  margin-bottom: 8px;
+}
+
+#long-list {
+  margin: 2px;
+  font-size: 14px;
+}
+
+#saving-throw {
+  border: solid 1px black;
+  width: 120px;
+  height: 140px;
+  margin: 5px;
+  padding: 10px;
+}
+
+#skills {
+  border: solid 1px black;
+  width: 120px;
+  margin: 5px;
+  padding: 10px;
+}
+
+h3 {
+  font-size: 12px;
+  margin: 0;
+}
+
+h6 {
+  margin: 4px;
+  font-size: 8px;
+}
+
+/* ############# */
+/* stats group*/
+#stats-group {
+  width: 250px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: lightgrey;
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 10px;
+}
+
+#stats-group-box1 {
+  border: solid 1px black;
+  width: 70px;
+  height: 70px;
+  margin: 5px;
+  background-color: ivory;
+}
+#stats-group-box2 {
+  border: solid 1px black;
+  width: 235px;
+  height: 80px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  background-color: ivory;
+}
+#stats-group-box3 {
+  border: solid 1px black;
+  width: 111px;
+  height: 60px;
+  margin: 5px;
+  background-color: ivory;
+}
+
+#attacks {
+  border: solid 1px black;
+  width: 250px;
+  height: 180px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+/* ############# */
+/* Background */
+#background {
+  width: 300px;
+  height: 425px;
+  margin: 5px;
+  padding: 12px;
+  background-color: lightgrey;
+}
+
+#bg-box {
+  border: solid 1px black;
+  width: 290px;
+  height: 90px;
+  padding: 5px;
+  margin-bottom: 5px;
+  background-color: ivory;
+}
+
+/* ############# */
+/* Equipment */
+#equipment {
+  border: solid 1px black;
+  height: 220px;
+  width: 250px;
+  margin-top: 10px;
+  margin-left: 20px;
+  padding: 10px;
+}
+
+#prof-lang {
+  border: solid 1px black;
+  width: 230px;
+  height: 200px;
+}
+#pass-wis {
+  border: solid 1px black;
+  width: 230px;
+  height: 30px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+
+#feature {
+  border: solid 1px black;
+  height: 220px;
+  width: 300px;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 10px;
 }

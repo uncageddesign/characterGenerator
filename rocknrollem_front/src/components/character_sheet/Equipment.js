@@ -2,8 +2,7 @@ import React from 'react';
 
 const Equipment = (props) => {
   return(
-    <div>
-    <hr/>
+    <div id="equipment">
     <h3>Equipment</h3>
     </div>
   )
