@@ -29,6 +29,8 @@ img{
   height: 50px;
 }
 
+/* ############# */
+/* Form */
 .bgInput {
   margin: 5px;
   height: 10vh;
@@ -75,6 +77,14 @@ button {
   width: 80vw;
 }
 
+.dicetray {
+  width: 20vw;
+  background-color: red;
+}
+
+
+/* ############# */
+/* Character Sheet */
 #sheet {
   width: 60vw;
   margin: auto;
@@ -83,7 +93,28 @@ button {
   padding: 20px;
 }
 
-.dicetray {
-  width: 20vw;
-  background-color: red;
+/* ############# */
+/* Identity Component */
+.identity-comp {
+  display: flex;
+  width: 98%;
+  padding: 5px;
+  margin: 5px;
+  border: solid 1px black;
+}
+
+#charName {
+  padding: 3px;
+  width: 800px;
+  font-size: 20px;
+  margin: 10px;
+  border: solid 1px black;
+}
+
+#identity-group {
+  width: 600px;
+}
+
+#id-group-element {
+  width: 200px;
 }
