@@ -1,6 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import CharacterContainer from './CharacterContainer';
 import SheetContainer from './SheetContainer';
+import Request from '../helpers/request.js';
+import Equipment from '../helpers/equipment.js'
 
 class MainContainer extends Component {
   constructor(props){
@@ -17,8 +19,7 @@ class MainContainer extends Component {
             ideal: "",
             bonds: "",
             flaws: ""
-          },
-          equipment: []
+          }
         },
         characterStats: {
           attributes: [],
@@ -52,6 +53,14 @@ class MainContainer extends Component {
       {characterClasses: responseData.results}
     )
   }).catch(err => console.error('Just cannae do it captain'));
+
+  //Equipment
+  const request = new Request();
+    request.get("http://www.dnd5eapi.co/api/startingequipment")
+    .then((data) => {
+      this.setState({characterClasses: data.results})
+      console.log(data.results);
+    })
   }
 
   addToAttributes(att, mod){
@@ -76,14 +85,21 @@ class MainContainer extends Component {
 
     // GET CLASS
     const index = parseInt(event.target.class.value)
-    const charClass = this.state.characterClasses[index].class
+    const charClass = this.state.characterClasses[index]
 
     //GET RACE
     const indexR = parseInt(event.target.race.value)
     const charRace = this.state.characterRaces[indexR].name
 
-    newChar.class = charClass
+    console.log(charClass);
+
+    //GET EQUIPMENT
+    const charEquip = new Equipment(charClass)
+    charEquip.getStartingEquipment()
+
+    newChar.class = charClass.name
     newChar.race = charRace
+    newChar.equipment = charEquip
     newChar.characterName = event.target.characterName.value
     newChar.alignment = event.target.alignment.value
     newChar.playerName = event.target.playerName.value
@@ -93,17 +109,19 @@ class MainContainer extends Component {
     newBackground.flaws = event.target.flaws.value
 
     this.setState({character: newChar})
+    // window.location = "/sheet"
   }
 
+// <h1>Cower before me, mere mortals!</h1>
   render(){
     return (
-    <Fragment>
+      <div id="app-container">
+    <Fragment >
+    <img className="logo" src="logo.png" />
       <CharacterContainer addToAttributes={this.addToAttributes} handleSubmit={this.handleSubmit} />
-
-
       <SheetContainer {...this.state} />
-
     </Fragment>
+    </div>
   )
 }
 
