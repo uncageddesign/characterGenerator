@@ -43,11 +43,10 @@ const CharacterContainer = (props) => {
         <h2>Class</h2>
           <CharacterClass class={CharacterClass.selectedClass}/>
         </div>
-      </div>
-
-      <div>
-        <h2>Roll Your Ability Scores</h2>
-        <CharacterAttributes onChange={props.addToAttributes}/>
+        <div>
+          <h2>Roll Your Ability Scores</h2>
+          <CharacterAttributes onChange={props.addToAttributes}/>
+        </div>
       </div>
 
       <div className="background">
@@ -62,7 +61,7 @@ const CharacterContainer = (props) => {
           <TextArea className="bgInput" placeholder="Nobody's perfect. What are your character's flaws?" name="flaws" onChange={props.handleFlaws} />
       </div>
 
-      <button>Generate Character Sheet</button>
+      <a href="#sheet"><button>Generate Character Sheet</button></a>
 
       </Form>
     </Fragment>

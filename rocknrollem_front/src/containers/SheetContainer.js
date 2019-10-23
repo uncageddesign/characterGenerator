@@ -7,12 +7,14 @@ import Background from "../components/character_sheet/Background";
 class SheetContainer extends Component {
   render() {
     return (
+      <div id="sheet">
       <Fragment>
         <Identity {...this.props.character} />
         <Stats />
       <Attributes {...this.props.characterStats} />
         <Background {...this.props.character.background} />
       </Fragment>
+      </div>
     );
   }
 }

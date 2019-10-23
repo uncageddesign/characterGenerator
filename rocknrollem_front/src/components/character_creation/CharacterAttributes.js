@@ -37,9 +37,11 @@ constructor(props){
   render(){
     return(
           <div>
+          <div className="">
           {
             this.state.rolls.map((roll, index) => <DiceImage roll={roll} key={index} />)
           }
+          </div>
           {
             this.state.numberOfDice ? (
               <h2>
@@ -54,9 +56,7 @@ constructor(props){
               <button
               type="button"
                 key={number}
-                onClick={() => this.diceRoll(number)}
-
-              >
+                onClick={() => this.diceRoll(number)}>
                 {text}
               </button>
             );

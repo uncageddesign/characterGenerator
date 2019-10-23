@@ -21,11 +21,12 @@ code {
 
 .logo {
   width: 600px;
+  height: 100%;
 }
 
 img{
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
 }
 
 .bgInput {
@@ -33,6 +34,25 @@ img{
   height: 10vh;
   width: 30vw;
   font-size: 14px;
+}
+
+select {
+  width: 20vw;
+  height: 5vh;
+  margin: 5px;
+  font-size: 14px;
+}
+
+button {
+  height: 5vh;
+  padding: 10px;
+  margin: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: darkred;
+  color: whitesmoke;
+  border-radius: 5px;
+  border: none;
 }
 
 .textbox {
@@ -43,7 +63,7 @@ img{
 }
 
 .creator {
-  height: 80vh;
+  height: 90vh;
   padding: 10px;
 }
 
@@ -53,4 +73,17 @@ img{
 
 .background {
   width: 80vw;
+}
+
+#sheet {
+  width: 60vw;
+  margin: auto;
+  color: black;
+  background-color: ivory;
+  padding: 20px;
+}
+
+.dicetray {
+  width: 20vw;
+  background-color: red;
 }
