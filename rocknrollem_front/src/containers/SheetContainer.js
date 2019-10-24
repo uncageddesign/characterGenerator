@@ -7,7 +7,10 @@ import Background from "../components/character_sheet/Background";
 
 class SheetContainer extends Component {
   render() {
-<<<<<<< HEAD
+
+    if (!this.props.dataLoaded) {
+      return null;
+    }
 
     return (
       <div id="sheet">
@@ -21,26 +24,12 @@ class SheetContainer extends Component {
           <div id="pass-wis">[ ] Passive Wisdom</div>
           <div id="prof-lang"><h3>Proficencies & Languages</h3></div>
           </div>
-          <Equipment {...this.props.character.equipment} />
+          <EquipmentList {...this.props.character.equipment} />
           <div id="feature"><h3>Features & Traits</h3></div>
         </div>
       </Fragment>
-=======
-    if (!this.props.dataLoaded) {
-      return null;
-    }
-    return (
-      <div id="sheet">
-        <Fragment>
-          <Identity {...this.props.character} />
-          <Stats />
-          <Attributes {...this.props.characterStats} />
-        <EquipmentList {...this.props.character} />
-          <Background {...this.props.character.background} />
-        </Fragment>
->>>>>>> 25312c4dbe0700a27149aefa03f77de08017209c
       </div>
-    );
+    )
   }
 }
 

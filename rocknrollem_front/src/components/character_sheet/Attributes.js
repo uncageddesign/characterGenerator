@@ -14,36 +14,36 @@ const Attributes = props => {
     <div id="attributes">
       <Fragment>
         <div id="stat-block">
-          <p id="ability-scores">
+          <div id="ability-scores">
             <h6>STRENGTH</h6>
             {props.attributes[0]} <br />
             ({strMod})
-          </p>
-          <p id="ability-scores">
+          </div>
+          <div id="ability-scores">
             <h6>DEXTERITY</h6>
             {props.attributes[1]} <br />
             ({dexMod})
-          </p>
-          <p id="ability-scores">
+          </div>
+          <div id="ability-scores">
             <h6>CONSTITUTION</h6>
             {props.attributes[2]} <br />
             ({conMod})
-          </p>
-          <p id="ability-scores">
+          </div>
+          <div id="ability-scores">
             <h6>INTELLIGENCE</h6>
             {props.attributes[3]} <br />
             ({intMod})
-          </p>
-          <p id="ability-scores">
+          </div>
+          <div id="ability-scores">
             <h6>WISDOM</h6>
             {props.attributes[4]} <br />
             ({wisMod})
-          </p>
-          <p id="ability-scores">
+          </div>
+          <div id="ability-scores">
             <h6>CHARISMA</h6>
             {props.attributes[5]} <br />
             ({chaMod})
-          </p>
+          </div>
         </div>
         <div>
         <div id="saving-throw">

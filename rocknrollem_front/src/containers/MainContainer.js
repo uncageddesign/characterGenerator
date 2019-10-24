@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import CharacterContainer from "./CharacterContainer";
 import SheetContainer from "./SheetContainer";
 import Request from "../helpers/request.js";
