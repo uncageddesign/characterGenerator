@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import CharacterContainer from "./CharacterContainer";
 import SheetContainer from "./SheetContainer";
-import Request from "../helpers/request.js";
-import Equipment from "../helpers/equipment.js";
+// import Request from "../helpers/request.js";
+// import Equipment from "../helpers/equipment.js";
 
 class MainContainer extends Component {
   constructor(props) {
@@ -35,7 +35,8 @@ class MainContainer extends Component {
 
   componentDidMount() {
     const urlRaces = "http://www.dnd5eapi.co/api/races";
-    const url = "http://www.dnd5eapi.co/api/startingequipment";
+    const urlClasses = "http://www.dnd5eapi.co/api/classes";
+    // const url = "http://www.dnd5eapi.co/api/equipment";
 
     //RACES
     fetch(urlRaces)
@@ -46,7 +47,7 @@ class MainContainer extends Component {
       .catch(err => console.error("balls"));
 
     //CLASSES
-    fetch(url)
+    fetch(urlClasses)
       .then(response => response.json())
       .then(responseData => {
         this.setState({ characterClasses: responseData.results });
@@ -54,11 +55,11 @@ class MainContainer extends Component {
       .catch(err => console.error("Just cannae do it captain"));
 
     //Equipment
-    const request = new Request();
-    request.get("http://www.dnd5eapi.co/api/startingequipment").then(data => {
-      this.setState({ characterClasses: data.results });
-      console.log(data.results);
-    });
+    // const request = new Request();
+    // request.get("http://www.dnd5eapi.co/api/equipment").then(data => {
+    //   this.setState({ characterClasses: data.results });
+    //   console.log(data.results);
+    // });
   }
 
   addToAttributes(att, mod) {
@@ -90,11 +91,11 @@ class MainContainer extends Component {
     const charRace = this.state.characterRaces[indexR].name;
 
     //GET EQUIPMENT
-    const charEquip = new Equipment(charClass);
-    charEquip.getStartingEquipment();
+    // const charEquip = new Equipment(charClass);
+    // charEquip.getStartingEquipment();
     newChar.class = charClass.class;
     newChar.race = charRace;
-    newChar.equipment = charEquip;
+    // newChar.equipment = charEquip;
     console.log(newChar);
     newChar.characterName = event.target.characterName.value;
     newChar.alignment = event.target.alignment.value;
@@ -113,7 +114,7 @@ class MainContainer extends Component {
   render() {
     return (
       <div id="app-container">
-        <img className="logo" src="logo.png" />
+        <img className="logo" src="logo.png" alt="logo"/>
         <CharacterContainer
           addToAttributes={this.addToAttributes}
           handleSubmit={this.handleSubmit}

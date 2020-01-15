@@ -7,7 +7,7 @@ const CharacterClassSelector = (props) => {
     if(!props.charClasses.length === 0) {
       return ("Loading Classes")
     }
-    return <option value={index} key={index}> {char.class} </option>
+    return <option value={index} key={index}> {char.name} </option>
   })
 
   function handleChange(event) {
@@ -15,7 +15,7 @@ const CharacterClassSelector = (props) => {
   }
 
   return (
-    <select name="class" id="selector" defaultValue="default" onChange={handleChange}>
+    <select name="class" id="selector-class" defaultValue="default" onChange={handleChange}>
       <option disabled value="default">Choose a Class</option>
         {charClasses}
     </select>
