@@ -10,6 +10,8 @@ This tool can also be used by experienced players to build a one shot character,
 
 The generator is built using ReactJS and data pulled in from the dnd5eapi (http://www.dnd5eapi.co/docs/).
 
+Note: Dedicated API is being build to make the population of the character sheet easier based on the requirements this builder has.
+
 ### Starting Instructions
 
 In the project directory, use terminal command:  
