@@ -16,7 +16,7 @@ class MainContainer extends Component {
         playerName: "",
         background: {
           personalityTraits: "",
-          ideal: "",
+          ideals: "",
           bonds: "",
           flaws: ""
         }
@@ -84,7 +84,7 @@ class MainContainer extends Component {
 
     // GET CLASS
     const index = parseInt(event.target.class.value);
-    const charClass = this.state.characterClasses[index];
+    const charClass = this.state.characterClasses[index].name;
 
     //GET RACE
     const indexR = parseInt(event.target.race.value);
@@ -93,10 +93,10 @@ class MainContainer extends Component {
     //GET EQUIPMENT
     // const charEquip = new Equipment(charClass);
     // charEquip.getStartingEquipment();
-    newChar.class = charClass.class;
+    newChar.class = charClass;
     newChar.race = charRace;
     // newChar.equipment = charEquip;
-    console.log(newChar);
+    // console.log(newChar);
     newChar.characterName = event.target.characterName.value;
     newChar.alignment = event.target.alignment.value;
     newChar.playerName = event.target.playerName.value;
