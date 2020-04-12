@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 
 const Background = (props) => {
   return (
-    <div ID="background">
+    <div id="background">
     <Fragment>
       <div id="bg-box"><h3>Personality Traits</h3> <p>{props.personalityTraits}</p></div>
       <div id="bg-box"><h3>Ideals</h3> <p>{props.ideals}</p></div>

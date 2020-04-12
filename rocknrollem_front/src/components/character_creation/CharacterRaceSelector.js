@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CharacterRaceSelector = (props) => {
-  
+
   console.log(props);
   const options =  props.races.map((race, index) => {
   if(!props.races.length === 0) {
@@ -15,7 +15,7 @@ const CharacterRaceSelector = (props) => {
   }
 
   return (
-    <select name="race" id="selector" defaultValue="default" onChange={handleChange}>
+    <select name="race" id="selector-race" defaultValue="default" onChange={handleChange}>
       <option disabled value="default">Choose Your Race</option>
       {options}
     </select>

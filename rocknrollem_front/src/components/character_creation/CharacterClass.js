@@ -1,6 +1,6 @@
 import React from 'react';
 import CharacterClassSelector from '../../components/character_creation/CharacterClassSelector';
-import Equipment from '../../helpers/equipment.js'
+// import Equipment from '../../helpers/equipment.js'
 
 class CharacterClass extends React.Component {
   constructor(props){
@@ -13,7 +13,7 @@ class CharacterClass extends React.Component {
   }
 
   componentDidMount(){
-    const url = 'http://www.dnd5eapi.co/api/startingequipment'
+    const url = 'http://www.dnd5eapi.co/api/classes/'
 
     fetch(url)
     .then(response => response.json())
@@ -27,10 +27,11 @@ class CharacterClass extends React.Component {
   handleCharClassSelected(index){
     let selectedClass = this.state.charClasses[index];
     this.setState({selectedClass: selectedClass})
+    console.log(selectedClass);
 
-    const equipment = new Equipment(selectedClass)
-    equipment.getStartingEquipment();
-    this.setState({character:{equipment: equipment}})
+    // const equipment = new Equipment(selectedClass)
+    // equipment.getStartingEquipment();
+    // this.setState({character:{equipment: equipment}})
   }
 
   render(){
